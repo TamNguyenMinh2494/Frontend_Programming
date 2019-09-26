@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bài tập tuần 2</title>
+</head>
+
+<body>
+    <table style="width: 50%">
+        <tr>
+            <td>Mã sản phẩm</td>
+            <td><input type="number"><br></td>
+        </tr>
+        <tr>
+            <td>Tên sản phẩm</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td> Số lượng</td>
+            <td><input id="quantity" type="number"><br></td>
+        </tr>
+        <tr>
+            <td>Giá</td>
+            <td><input id="price" type="number"><br></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button onclick="sessionStore()">Thêm giỏ hàng</button></td>
+        </tr>
+    </table>
+    <div id="allProduct"></div>
+    <div id="allMoney"></div>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+    <script type="text/javascript">
+        function sessionStore() {
+            if (typeof (Storage) !== "undefined") {
+                if (sessionStorage.clickcount) {
+                    sessionStorage.clickcount = Number(sessionStorage.clickcount) + Number(document.getElementById("quantity").value);
+                    Price = Number(document.getElementById("price").value) * sessionStorage.clickcount;
+                } else {
+                    sessionStorage.clickcount = 1;
+                }
+
+            }
+            else {
+                document.getElementById("allProduct").innerHTML = "Sorry";
+            }
+            document.getElementById("allProduct").innerHTML = "<b>Tổng sản phẩm: </b>" + sessionStorage.clickcount;
+            document.getElementById("allMoney").innerHTML = "<b>Tổng giá: </b>" + Price;
+        }
+    </script>
+</body>
+
+</html>
