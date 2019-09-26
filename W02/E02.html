@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="./script02.js"></script>
     <title>Document</title>
 </head>
 
@@ -19,8 +20,18 @@
             <td><input id="num2" type="number"></td>
         </tr>
     </table>
-    <button id="btnAdd">Add</button>
-    <button id="btnStop">Stop Worker</button>
+    <button id="btnAdd" onclick="startWorker()">Add</button>
+    <button id="btnStop" onclick="stopWorker()">Stop Worker</button>
+    <p id="abc"></p>
+    <div>
+        <table>
+            <tr>
+                <td><b>Random + Number 1 + Number 2 = </b></td>
+                <td id="result"></td>
+            </tr>
+        </table>
+    </div>
+
 </body>
 
 </html>
